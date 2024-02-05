@@ -5,3 +5,39 @@
   justify-content: center;
   align-items: center;
 }
+.timer__nowTime{
+  /* background-color: aqua; */
+  color: #0d6932;
+  font-weight: 700;
+}
+.timer__allTime{
+  background-color: blueviolet;
+}
+
+/* times */
+.time_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20vh;
+  margin: 5px;
+  padding: 5px;
+}
+.startTime{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+.endTime{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+.subtractTime{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
