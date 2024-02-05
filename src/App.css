@@ -5,13 +5,19 @@
   justify-content: center;
   align-items: center;
 }
+.timer__title{
+  font-weight: 700;
+  font-size: 90px;
+  margin-bottom: 60px;
+  color: #085a29;
+}
 .timer__nowTime{
   /* background-color: aqua; */
-  color: #0d6932;
+  color: #085a29;
   font-weight: 700;
 }
 .timer__allTime{
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 /* times */

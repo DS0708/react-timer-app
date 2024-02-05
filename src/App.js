@@ -32,10 +32,15 @@ function App() {
   }
 
   const calculateSubtractTime = () => {
-    if (endTime.year - startTime.year > 0 || endTime.month - startTime.month > 0 || endTime.day - startTime.day > 0){
-      setSubtractTime({hour: endTime.hour-startTime.hour+24, minute: endTime.minute-startTime.minute});
-    }else {
-      setSubtractTime({hour: endTime.hour-startTime.hour, minute: endTime.minute-startTime.minute});
+    let sum_startTime = parseInt(startTime.hour) * 60 + parseInt(startTime.minute);
+    let sum_endTime = parseInt(endTime.hour) * 60 + parseInt(endTime.minute);
+    let sum_subTime = sum_endTime - sum_startTime;
+  
+    if (endTime.year - startTime.year > 0 || endTime.month - startTime.month > 0 || endTime.day - startTime.day > 0) {
+      sum_subTime += 24 * 60;
+      setSubtractTime({ hour: Math.floor(sum_subTime / 60), minute: sum_subTime % 60 });
+    } else {
+      setSubtractTime({ hour: Math.floor(sum_subTime / 60), minute: sum_subTime % 60 });
     }
   }
 
@@ -47,6 +52,7 @@ function App() {
   
   return (
     <div className="timer">
+      <div className="timer__title">Timer</div>
       <div className="timer__nowTime">
         <div className="buttons">
           <button type="button" className="btn__start" onClick={startBtnClickListener}>Start</button>
