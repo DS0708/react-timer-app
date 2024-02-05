@@ -5,9 +5,11 @@ function App() {
   const [startTime, setStartTime] = useState({hour: "00", minute: "00"});
   const [endTime, setEndTime] = useState({hour: "00", minute: "00"});
   const [subtractTime, setSubtractTime] = useState({hour: "00", minute: "00"});
+  const [allTime, setAllTime] = useState({hour: 0, minute: 0});
 
   useEffect(() => {
     calculateSubtractTime();
+    // eslint-disable-next-line
   }, [endTime])
   
 
@@ -49,6 +51,16 @@ function App() {
     setEndTime({hour: "00", minute: "00"});
     setSubtractTime({hour: "00", minute: "00"});
   }
+
+  const addBtnClickListener = () =>{
+    let sumAllTime = allTime.hour*24 + allTime.minute + parseInt(subtractTime.hour*24) + parseInt(subtractTime.minute);
+    setAllTime({hour: Math.floor(sumAllTime / 60), minute: sumAllTime % 60});
+    resetBtnClickListener();
+  }
+
+  const resetAllTimeBtnClickListener = () =>{
+    setAllTime({hour:0,minute:0});
+  }
   
   return (
     <div className="timer">
@@ -58,7 +70,7 @@ function App() {
           <button type="button" className="btn__start" onClick={startBtnClickListener}>Start</button>
           <button type="button" className="btn__stop" onClick={stopBtnClickListener}>Stop</button>
           <button type="button" className="btn__reset" onClick={resetBtnClickListener}>Reset</button>
-          <button type="button" className="btn__add">Add</button>
+          <button type="button" className="btn__add" onClick={addBtnClickListener}>Add</button>
         </div>
         <div className="time_info">
           <div className="startTime">시작 시각 : {startTime.hour}시 {startTime.minute}분</div>
@@ -66,7 +78,18 @@ function App() {
           <div className="subtractTime">차이 시간 : {subtractTime.hour}시간 {subtractTime.minute}분</div>
         </div>
       </div>
-      <div className="timer__allTime">timer__allTime</div>
+      <div className="timer__allTime">
+        총
+        <input type="text" value={allTime.hour} />시간
+        <input type="text" value={allTime.minute} />분 
+        <div className="allTime__btns">
+          <button type="button" className="btn__setting">Setting</button>
+          <button 
+            type="button" 
+            className="btn__reset_allTime"
+            onClick={resetAllTimeBtnClickListener}>Reset</button>
+        </div>
+      </div>
     </div>
     
   );

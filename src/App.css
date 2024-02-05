@@ -1,3 +1,27 @@
+/* button */
+button{
+  width: 100px;
+  background-color: #27ae60;
+  border-width: 0px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 200;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+button:last-child{
+  margin-right: 0;
+}
+button:hover{
+  background-color: white;
+  color: #27ae60;
+  transition: .3s;
+}
+
+/* timer */
 .timer{
   display: flex;
   flex-direction: column;
@@ -5,23 +29,21 @@
   justify-content: center;
   align-items: center;
 }
+
+/* timer__title */
 .timer__title{
   font-weight: 700;
   font-size: 90px;
   margin-bottom: 60px;
   color: #085a29;
 }
+
+/* timer__nowTime */
 .timer__nowTime{
-  /* background-color: aqua; */
   color: #085a29;
   font-weight: 700;
 }
-.timer__allTime{
-  /* background-color: blueviolet; */
-}
-
-/* times */
-.time_info{
+.timer__nowTime .time_info{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,21 +51,32 @@
   margin: 5px;
   padding: 5px;
 }
-.startTime{
+.timer__nowTime .time_info .startTime,.endTime,.subtractTime{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50%;
 }
-.endTime{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
+
+/* timer__allTime */
+.timer__allTime{
+  font-size: 50px;
+  border: black solid 1px;
+  border-radius: 20px;
+  padding: 20px 50px; 
 }
-.subtractTime{
+.allTime__btns{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50%;
+  margin-top: 20px;
+}
+.timer__allTime input{
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: red;
+  text-align: right;
+  margin-left: 20px;
 }

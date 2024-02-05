@@ -11,24 +11,3 @@ ol, ul {
   padding: 0;
 }
 
-button{
-  width: 100px;
-  background-color: #27ae60;
-  border-width: 0px;
-  border-radius: 5px;
-  color: #fff;
-  font-weight: 200;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  padding: 10px 20px;
-  text-decoration: none;
-  cursor: pointer;
-}
-button:last-child{
-  margin-right: 0;
-}
-button:hover{
-  background-color: white;
-  color: #27ae60;
-  transition: .3s;
-}
