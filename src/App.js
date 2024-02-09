@@ -7,6 +7,14 @@ function App() {
   const [subtractTime, setSubtractTime] = useState({hour: "00", minute: "00"});
   const [allTime, setAllTime] = useState({hour: 0, minute: 0});
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     calculateSubtractTime();
     // eslint-disable-next-line
@@ -80,15 +88,28 @@ function App() {
       </div>
       <div className="timer__allTime">
         총
-        <input type="text" value={allTime.hour} />시간
-        <input type="text" value={allTime.minute} />분 
+        <span>{allTime.hour}</span>시간
+        <span>{allTime.minute}</span>분
         <div className="allTime__btns">
-          <button type="button" className="btn__setting">Setting</button>
+          <button type="button" className="btn__setting" onClick={openModal}>Setting</button>
           <button 
             type="button" 
             className="btn__reset_allTime"
             onClick={resetAllTimeBtnClickListener}>Reset</button>
         </div>
+        {isModalOpen && (
+        <div className="modal">
+          <div className="modal__content">
+            <span>모달 내용 및 입력 폼</span>
+            <button type="button" >
+              설정 적용
+            </button>
+            <button type="button" onClick={closeModal}>
+              닫기
+            </button>
+          </div>
+        </div>
+        )}
       </div>
     </div>
     
