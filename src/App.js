@@ -72,7 +72,7 @@ function App() {
   
   return (
     <div className="timer">
-      <div className="timer__title">Timer</div>
+      <div className="timer__title">DS's Timer</div>
       <div className="timer__nowTime">
         <div className="buttons">
           <button type="button" className="btn__start" onClick={startBtnClickListener}>Start</button>
