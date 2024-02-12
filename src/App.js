@@ -14,6 +14,16 @@ function App() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const applyTime = () => {
+    let set_hour = parseInt(document.getElementById('set_hour').value);
+    let set_minute = parseInt(document.getElementById('set_minute').value);
+    if (set_minute >= 60){
+      set_hour += Math.floor(set_minute/60);
+      set_minute = set_minute % 60;
+    }
+    setAllTime({hour: set_hour, minute: set_minute});
+    closeModal();
+  }
 
   useEffect(() => {
     calculateSubtractTime();
@@ -61,8 +71,10 @@ function App() {
   }
 
   const addBtnClickListener = () =>{
-    let sumAllTime = allTime.hour*24 + allTime.minute + parseInt(subtractTime.hour*24) + parseInt(subtractTime.minute);
-    setAllTime({hour: Math.floor(sumAllTime / 60), minute: sumAllTime % 60});
+    let sumAllTime = allTime.hour*60 + allTime.minute + parseInt(subtractTime.hour)*60 + parseInt(subtractTime.minute);
+    let change_hour = Math.floor(sumAllTime / 60);
+    let change_minute = sumAllTime % 60;
+    setAllTime({hour: change_hour, minute: change_minute});
     resetBtnClickListener();
   }
 
@@ -90,32 +102,49 @@ function App() {
             End Time : 
             <span>{endTime.hour}</span>h <span>{endTime.minute}</span>m
           </div>
-          <div className="subtractTime">Difference Time : {subtractTime.hour}h {subtractTime.minute}m</div>
+          <div className="subtractTime">
+            Difference Time : 
+            <span>{subtractTime.hour}</span>h <span>{subtractTime.minute}</span>m
+            </div>
         </div>
       </div>
       <div className="timer__allTime">
-        ALL
-        <span>{allTime.hour}</span>h
-        <span>{allTime.minute}</span>m
-        <div className="allTime__btns">
-          <button type="button" className="btn__setting" onClick={openModal}>Setting</button>
-          <button 
-            type="button" 
-            className="btn__reset_allTime"
-            onClick={resetAllTimeBtnClickListener}>Reset</button>
-        </div>
-        {isModalOpen && (
-        <div className="modal">
-          <div className="modal__content">
-            <span>Form</span>
-            <button type="button" >
-              설정 적용
-            </button>
-            <button type="button" onClick={closeModal}>
-              닫기
-            </button>
+        {!isModalOpen && (
+          <div className="modal_close">
+            ALL
+          <span>{allTime.hour}</span>h
+          <span>{allTime.minute}</span>m
+          <div className="allTime__btns">
+            <button type="button" className="btn__setting" onClick={openModal}>Setting</button>
+            <button 
+              type="button" 
+              className="btn__reset_allTime"
+              onClick={resetAllTimeBtnClickListener}>Reset</button>
           </div>
-        </div>
+          </div>
+        )}
+        {isModalOpen && (
+          <div className="modal_open">
+            <div className="modal__content">
+              <span>Time Setting</span>
+              <form>
+                <label htmlFor="hour">Hour:</label>
+                <input type="text" id="set_hour" maxLength="2" />
+
+                <label htmlFor="minute">Minute:</label>
+                <input type="text" id="set_minute" maxLength="2" />
+                
+                <div className="buttons">
+                  <button type="button" onClick={applyTime}>
+                    Set
+                  </button>
+                  <button type="button" onClick={closeModal}>
+                    Close
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
       </div>
     </div>

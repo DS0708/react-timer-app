@@ -60,7 +60,7 @@ button:hover{
   height: 50%;
 }
 .timer__nowTime .time_info span{
-  color: #083019;
+  color: #e7e14d;
   margin-left: 10px;
 }
 
@@ -78,8 +78,30 @@ button:hover{
   height: 50%;
   margin-top: 20px;
 }
-.timer__allTime span{
+.timer__allTime .modal_close span{
   font-size: 50px;
   color: red;
   margin-left: 20px;
+}
+.timer__allTime .modal_open .modal__content span{
+  margin-bottom: 10px;
+}
+.timer__allTime .modal_open .modal__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.timer__allTime .modal_open .modal__content input{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: red;
+  text-align: right;
+}
+.timer__allTime .modal_open .modal__content .buttons{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
