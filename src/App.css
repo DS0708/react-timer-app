@@ -48,6 +48,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 20vh;
   margin: 5px;
   padding: 5px;
@@ -57,6 +58,10 @@ button:hover{
   justify-content: center;
   align-items: center;
   height: 50%;
+}
+.timer__nowTime .time_info span{
+  color: #083019;
+  margin-left: 10px;
 }
 
 /* timer__allTime */

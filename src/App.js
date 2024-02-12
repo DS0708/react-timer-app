@@ -81,15 +81,22 @@ function App() {
           <button type="button" className="btn__add" onClick={addBtnClickListener}>Add</button>
         </div>
         <div className="time_info">
-          <div className="startTime">시작 시각 : {startTime.hour}시 {startTime.minute}분</div>
-          <div className="endTime">종료 시각 : {endTime.hour}시 {endTime.minute}분</div>
-          <div className="subtractTime">차이 시간 : {subtractTime.hour}시간 {subtractTime.minute}분</div>
+          <div className="startTime">
+            Start Time : 
+            <span>{startTime.hour}</span>h 
+            <span>{startTime.minute}</span>m
+          </div>
+          <div className="endTime">
+            End Time : 
+            <span>{endTime.hour}</span>h <span>{endTime.minute}</span>m
+          </div>
+          <div className="subtractTime">Difference Time : {subtractTime.hour}h {subtractTime.minute}m</div>
         </div>
       </div>
       <div className="timer__allTime">
-        총
-        <span>{allTime.hour}</span>시간
-        <span>{allTime.minute}</span>분
+        ALL
+        <span>{allTime.hour}</span>h
+        <span>{allTime.minute}</span>m
         <div className="allTime__btns">
           <button type="button" className="btn__setting" onClick={openModal}>Setting</button>
           <button 
@@ -100,7 +107,7 @@ function App() {
         {isModalOpen && (
         <div className="modal">
           <div className="modal__content">
-            <span>모달 내용 및 입력 폼</span>
+            <span>Form</span>
             <button type="button" >
               설정 적용
             </button>
