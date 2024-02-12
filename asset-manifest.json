@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-timer-app/static/css/main.dbd4a866.css",
-    "main.js": "/react-timer-app/static/js/main.80759cd0.js",
+    "main.css": "/react-timer-app/static/css/main.d780b41c.css",
+    "main.js": "/react-timer-app/static/js/main.360bf480.js",
     "static/js/592.c9574288.chunk.js": "/react-timer-app/static/js/592.c9574288.chunk.js",
     "index.html": "/react-timer-app/index.html",
-    "main.dbd4a866.css.map": "/react-timer-app/static/css/main.dbd4a866.css.map",
-    "main.80759cd0.js.map": "/react-timer-app/static/js/main.80759cd0.js.map",
+    "main.d780b41c.css.map": "/react-timer-app/static/css/main.d780b41c.css.map",
+    "main.360bf480.js.map": "/react-timer-app/static/js/main.360bf480.js.map",
     "592.c9574288.chunk.js.map": "/react-timer-app/static/js/592.c9574288.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dbd4a866.css",
-    "static/js/main.80759cd0.js"
+    "static/css/main.d780b41c.css",
+    "static/js/main.360bf480.js"
   ]
 }
