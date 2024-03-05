@@ -129,10 +129,10 @@ function App() {
               <span>Time Setting</span>
               <form>
                 <label htmlFor="hour">Hour:</label>
-                <input type="text" id="set_hour" maxLength="2" />
+                <input type="text" id="set_hour" maxLength="2" placeholder={allTime.hour}/>
 
                 <label htmlFor="minute">Minute:</label>
-                <input type="text" id="set_minute" maxLength="2" />
+                <input type="text" id="set_minute" maxLength="2" placeholder={allTime.minute}/>
                 
                 <div className="buttons">
                   <button type="button" onClick={applyTime}>
