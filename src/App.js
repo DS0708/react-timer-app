@@ -17,6 +17,12 @@ function App() {
   const applyTime = () => {
     let set_hour = parseInt(document.getElementById('set_hour').value);
     let set_minute = parseInt(document.getElementById('set_minute').value);
+
+    // hour, minute NaN값 입력 시 예외처리
+    set_hour = isNaN(set_hour) ? allTime.hour : set_hour;
+    set_minute = isNaN(set_minute) ? allTime.minute : set_minute;
+    
+    // minute 60이상 입력 예외처리
     if (set_minute >= 60){
       set_hour += Math.floor(set_minute/60);
       set_minute = set_minute % 60;
